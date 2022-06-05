@@ -1,0 +1,70 @@
+What is web server
+
+Prerequisites(전제조건)
+1. web page
+2. web site
+3. web server
+4. search engine
+
+Objective:
+server is and gain a general inderstanding of how it works
+
+Summary(요약)
+-> The term web server can refer to hardware or software
+or  both of them working together.
+
+1. On the hardware side,
+server is computer(server software + website's component files)
+server connects is 다른 웹 디바이스 연결을 위한 
+physical data inerchange을 supports한다.
+
+2. On the software side,
+호스트의 파일을 제어하는 몇몇의 파트는 웹서버로 포함한다.
+웹 주소나 윕페이지 사용할 프로토콜을 
+'도메인' 으로 이용자의 디바이스로 배달한다.
+
+//웹 서버로 호스팅된 파일을 필요로할때 
+브라우저는 HTTP로 요청하는데, 알맞게 요청이 도달하면
+문서를 브라우저에 돌려준다.
+허나, 오청한 문서를 못 찾으면 404페이지를 준다.
+
+웹 사이트를 게시하기 위해 정적 또는 정적 웹 서바가 필요로 하다. 
+1. static web server
+-> 정적 웹 서버, 스택, HTTP를 포함한 컴퓨터는 static
+    이라고 부르는데 호스트파일 브라우저를 서버로 보내기 떄문이다.
+2. dynamic web server
+-> 동적 웹서는 '웹서버 + 소프트웨어'
+-> 가장 흔하게 어플리케이션 서버와 데이터베이스가 있다.
+-> HTTP서버로 너의 브라우저에 내용을 보내기 이전에 
+    어플리ㅖ이션 서비를 업데이트를 하기 때문에 동적이라고 한다.
+
+Deeper dive:
+웹 페이지를 가져올때(fetch),
+브라우저가 서버를 보내고, 요청된 파일을 스토리지 스페이스에서 찾고,
+파일을 찾았을때, 서버가 읽고, 프로세스에서 필요하면 브라우저가 보낸다.
+
+Hosting files
+-> 웹 서버를 저장하기 위한 웹서버 파일을 HTML documents으로 이용한다.
+-> 태크닉으로 모든 파일을 전용서버(dedicated seb server)
+    로 보내는 데 편하기(convenient) 때문이다.
+
+Communication through HTTP
+-> 웹서버를 재공하는 HTTP는 이름에서 알수 있듯이
+     hypertext는 두개의 컴퓨터를 전송하는 것을 지시한다.
+1. Textual , 2. Stateless //추가할 내용
+
+static VS dynamic content
+-> static means "served as-is"
+    static sebsite은 세팅하기 쉽거, 가장 첫번째로 제시한다.
+-> term dynamic은 데이터베이스를 제송한다.
+    기술적인 스택은 복잡하고, 
+    웹사이트를 빌드하는 도전을 다이나믹 하게 만든다.
+
+// 아주 많은 어플리케이션 서버는 어려운 분야로 설정되었는데
+   블로그나 위키피키등등 제너릭하다.
+   만약 제너릭한 윕사이트를 만들고자 하면, 시간이 필요하고
+   서버 프로그래밍을 배우는 것을 원할 것이다.
+// 너가 개인 어플리케이션 서버를 만들고자한다면 도구를 사용하자
+
+
+
