@@ -1,0 +1,115 @@
+결합도(Coupling)
+응집도(cohesion)
+묘듈(Module)
+모듈화(Modularization)
+
+모듈화란? -> 소프트웨어를 각 기능별로 나누는 것
+모듈이란? -> 기능별로 나눠진 모듈화의 결과
+             -> 서브루틴(Subroutine) or 소프트웨어 내의 program or 작업 단위
+// 좋은 모듈화는 목적에 맞는 기능만으로 모듈을 나누는 것
+	         주어진 기능만을 독립적으로 수행하고 다른 모듈과 적게 연관되야 한다.
+
+// 독립성이 높은 모듈일수록
+   -> 다른 모듈에 끼치는 영향이 적다.
+   -> 오류 발생시 쉽게 문제 발견하고 해결할 수 있음
+
+
+Question
+1. 모듈의 독립성은 무엇으로 측정이 되는가?
+-> 결합도(Coupling) AND 응집도(Cohesion)
+// 모듈의 독립성을 높이기 위해 
+   모듈 간의 상호 의존 정도는 (결합도)를 낮추고,
+   모듈 간의 독립적으로 자체 기능만 수행 (응집도)
+--> (결합도 down) , (응집도 up)
+
+--------------------------------------------------------------------------------------------------------------------
+
+[결합도]_1. 자료     2.스탬프   3. 제어     4. 외부    5. 공통     6. 내용__Data, Stamp, Control, External, Common
+[응집도]_1. 기능적  2. 순차적  3. 교환적  4. 절차적  5. 일시적  6. 논리적  7. 우연적 
+
+[Data coupling]_단순히 파라미터 등을 통해 데이터를 주고받는 경우
+public void foo(){int result = makeSquare(5);}
+-> 단순 데이터를 전달 public int makeSquare(int x){return x*x;}
+
+[Stamp Coupling]_두 모듈이 동일한 자료 구조(interface_array, object)를 참조하는 형태의 결합도
+-> interface_array, object
+-> 자료구조의 형태 변경시 그것을 참조하는 모듈에 영향을 준다
+-> 실제로 참조하지 않는 모듈에도 영향을 준다
+-> 단순 데이터 타입이 아닌 오브젝트 형태의 자료 구조를 전달
+public void foo(){Person p = new Person("김매드","abc@abc.com";  sendEmail(p); } 
+public void sendEmail(Person person){ //메일 발송 로직 }
+
+[Control Coiupling]_모듈 내부의 논리적인 흐름을 제어하는 요소를 전달
+-> 파라미터로 전달되는 값에 다라 모듈 내부 로직의 처리가 달라진다
+-> (내부 로직의 처리)_Flag값 등으로 결합되는 형태
+-> ex> 회원 여부에 다라 주차요금을 계산하는 로직이 다르다.
+public void foo(){printcharge(true);}
+public void printcharge(boolean is Member){
+        if(isMember){printMemberCharge();}
+        else{printNormalcharge();}}
+
+[External Coupling]_외부에 있는 모듈or데이터 참조할 때의 결합 형태
+-> 외부 결합도는 외부의 데이터, 통신 프로토콜 등을 공유할 때 발생
+-> 모듈의 반환한 값을 다른 모듈에서 참조하는 경우 [외부 데이터를 참조하는] 경우 
+
+[Common Coupling]_여러 모듈이 하나의 데이터 영역을 참조하여 사용하는 형태
+-> ex> 전역변수(global variable)
+-> 전역 변수의 변경은 여러 모듈에 영향을 끼칠 수 있다.
+
+class Example{static int a = 5;  int b = 2;}
+public void methodA(){//a 또는 b 값 참조};
+public void methodB(){//a 또는 b 값 참조};
+
+[Content coupling]_모듈이 사용하기 위해 다른 모듈의 내부 기능과 데이터를 직접 참조하는 경우
+-> 다른 모듈의 로컬 데이터에 접근하는 경우처럼
+-> 사용하고자 하는 모듈의내용(코드)를 알고 있어야한다.
+
+-------------------------------------------------------------------------------------------------------------
+
+[Functional Cohesion]
+->모듈내의 모든 요소들이 하나의 기능 이상 수행하기 위해 구성된 것
+-> ex> 코사인(cosine)과 같은 계산하는 기능을 모아둔 함수 등
+
+[Sequential Cohesion]
+-> 한 요소의 출력이 다른 요소의 입력으로 사용되는 것(쓰기 위한 읽기)
+public void someMethod(){
+       String content = readFile();
+       writeFile(content);}
+
+[Communicational Cohesion]
+-> {입력,출력}데이터를 사용하여 서로 다른 기능을 수행하는 것
+
+[Pricedural Cohesion]
+-> 기능요소가 순차적으로 수행되지만, 다음 기능요소가 데이터가 아닌 흐름 제어요소로 전달되는 경우
+-> ex> 파일을 읽을 때 접근 허가를 확인한 후에 파일을 읽는 형태 등이다.
+
+[Temporal Cohesion]
+-> 기능요소가 순서에 상관없이 특정 시점에 반드시 수행되는 경우
+
+[Logical Cohesion]|
+-> 특정 형태로 분류되는 처리요소들이 논리적으로 수행하지만, 서로 밀접하지 않는 관계
+-> public void some<ethod(int val){ switch case문을 집어 넣는 형태 }
+
+[Coincidental Cohesion]
+-> 모듈 내부의 각 구성요소등이 아무런 관련없이 구성된 형태
+-> 모듈 수정이 사이드 이펙트를 발생시킬 가능성이 매우 높다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
