@@ -15,5 +15,29 @@
 Regulat Expression -> output(Replace, Search)
                          -> input(String)
 
+
+정규표현식 표현방법
+1. POSIX의 정규표현식
+2. Perl방식의 PCRE
+// 그외 수많은 정규표현식이 있지만, 거의 비슷하다.
+-> 정규표현식에서 사용하는 기호는 Meta문자
+-> Meta문자는 표현식 내부에 특정한 의미를 갖는 문자
+
+Meta 문자 중 독특한 성질을 지닌 문자클래스'[ ]'
+-> [xy] -> One of -> x, y중 하나를 찾습니다.
+-> [^xy] -> None of -> x,y를 제외하고 문자 하나를 찾습니다
+-> [x-z] -> One of -> x~z 사이의 문자중 하나를 찾는다.
+-> \^ -> "^" -> ^(특수문자)를 문자 자체를 포함한다.
+-> \b -> word_boundary -> 문자와 공백사이가 아닌 값을 찾습니다.
+-> \B -> non_word_boundary -> 문자와 공백사이가 아닌 값을 찾습니다.
+-> \d -> digit -> 숫자를 찾습니다.
+-> \D -> non_digit -> 숫자가 아닌 값을 찾습니다.
+-> \s -> whilte_space -> 공백문자를 찾습니다.
+-> \S -> non_white_space -> 공백이 아닌 문자를 찾습니다.
+-> \t -> tab -> Tab 문자를 찾습니다.
+-> \v -> vertical_tab -> Vertical Tab 문자를 찾습니다.
+-> \w -> word -> 알파벳 + 숫자 + _를 찾습니다.
+-> \W -> non_word -> 알파벳 + 숫자 + _을 제외한 모든 문자를 찾습니다.
+
 https://www.nextree.co.kr/p4327/
 
