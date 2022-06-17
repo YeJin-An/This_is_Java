@@ -88,7 +88,7 @@ public void someMethod(){
 
 [Logical Cohesion]|
 -> 특정 형태로 분류되는 처리요소들이 논리적으로 수행하지만, 서로 밀접하지 않는 관계
--> public void some<ethod(int val){ switch case문을 집어 넣는 형태 }
+-> public void someMethod(int val){ switch case문을 집어 넣는 형태 }
 
 [Coincidental Cohesion]
 -> 모듈 내부의 각 구성요소등이 아무런 관련없이 구성된 형태
