@@ -1,0 +1,79 @@
+software
+
+1. 소프트웨어는 지침의 집합이다.
+2. 데이터 나 프로그램은 컴퓨터 연산과 특별한 작업을 실행하기 위해 사용된다.
+3. 소프트웨어의 반대말은 하드웨어인데, 컴퓨터의 신체적 측면을 설명하고 있다.
+4. 소프트웨어는 제네릭 팀은 어플리케이션, 스크립트 그리고 프로그램이 
+   디바이스를 실행하는 것을 선호합니다
+5. 이것은 하드웨어가 공정되어 있는 상태 동안 컴퓨터의 변수 부분으로 생각되어진다.
+
+
+1. 소프트웨어는 2가지의 범주로 application 소프트웨어와 system 소프트 웨어가 있다.
+2. application은 소프트웨어이고 특별히 필요한 기능이거나 일의 작업을 행동한다.
+3. system 소프트웨어는 컴퓨터의 하드웨어와 최상단의 어플레케이션의 플랫폼을 
+   실행하기 위해 디자인 되었다.
+
+소프트웨어의 다른 타입으로 프로그래밍 소프트웨어를 포함하고 있는데,
+소프트웨어 개발자게 필요한 "미들웨어 프로그래밍 도구"를 제공한다.
+
+[미들웨어]
+1. 시스템 소프트웨어와 어플리케이션 사이에 끼어 있다.
+2. 드라이버 소프트웨어인데, 컴퓨터 장치와 주변기기(peripherals)를 운영(operates). 
+
+
+초기 소프트웨어
+1. 특정한 컴퓨터로 작성을 하였고, 실행되는 하드웨어를 포함하여 판매를 하였다.
+2. 1980년도 소프트웨어는 플로피디스크를 판매하는 것으로 시작하였고, 나중에 CD나 DVD가 되었다.
+3. 오늘날 대부분의 소프트웨어는 빠르게 인터넷을 통해서 다운로드로 구매를 합니다.
+4. 소프트웨어는 웹의 "공급업체" or "어플리케이션 서비스 제공자 웹사이트"에서  발견할 수 있습니다.
+
+
+[ Software Stack ]
+1. Application software
+2. System software
+3. Driver software
+4. Middleware
+5. Programming software
+
+
+Q. 어떻세 소프트웨어는 일을 하나요?
+//.....
+1. Applistion software
+2. System software
+
+
+[ Design and implementation ]
+-> The software development lifesycle
+1. Architectural disign
+2. High-level disign
+3. Detailed design
+
+[How the software development lifecycle works]
+1. Planning -> 2. Analysis -> 3. Design -> 4. Implementation 
+-> 5. Testing and integration -> 6. Maintenence
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
