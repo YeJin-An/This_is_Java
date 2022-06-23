@@ -52,6 +52,8 @@ Q. 어떻세 소프트웨어는 일을 하나요?
 1. Planning -> 2. Analysis -> 3. Design -> 4. Implementation 
 -> 5. Testing and integration -> 6. Maintenence
 
+https://www.techtarget.com/searchapparchitecture/definition/software
+
 
 
 
