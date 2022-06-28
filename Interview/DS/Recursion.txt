@@ -1,0 +1,160 @@
+DS_DataStructure
+
+Recursive function
+------------------------------------------------------
+
+함수의 재귀적 호출의 이해
+
+재귀함수의 이해
+-> "Recursive 함수"를 실행하는 중간에 다시 Recursive 함수가 호출되면,
+    Recursive함수의 복사본을 하나 더 만들어서 복사본을 실행하게 된다. 
+
+// 재귀함수를 호출하기 위해선 반드시 탈출조건이 필요하다.
+왜냐하면 한번호출되면 무한루프에 빠지게 되는 문제가 있기 때문이다.
+
+// 1
+#inlcude <iostream>
+void Recursive(int num)
+{
+    if(num <= 0) return;
+    std::cout << "Recursive call!" << num << '\n'; //재귀함수 호출 전 출력
+    Recursive(num-1);
+} 
+
+int main(){
+    Recursive(3);
+    return 0;
+}
+
+// 2
+# include <iostream>
+int Factorial(int n)
+{
+    if ( n == 0 ) return 1;
+    else           return n * Factorial ( n - 1 ); 
+}
+
+int main(){
+    std::cout << Factorial(1) << '\n';
+    std::cout << Factorial(3) << '\n';
+    std::cout << Factorial(5) << '\n';
+    std::cout << Factorial(7) << '\n';
+}
+
+----------------------------------------------------------
+
+재귀함수의 디자인 사례(Factorial함수)
+
+n! = n * (n-1)!
+
+f(n) = n * f(n-1)  ...  n >= 1
+        1            ...  n = 0
+
+if(n == 0) return 1;
+else        return n * Factorial(n-1);
+
+// 수학적 수식을 그대로 코드로 옮기면 재귀함수가 완성되는 경우가 있다.
+   f(n) == 1인경우는 재귀함수의 탈출조건이 되어 f(n) = n * f(n-1)이 된다.
+
+-------------------------------------------------------------
+
+Recursive의 활용
+-> 하노이탑같은 재귀함수를 구현할때 매우 어려운 문제가 된다.
+-> 이해하는 것도 중요하다.
+-> 재귀함수를 잘 정의하기 위해서는 사고의 전환이 필요하다.
+
+
+-- 피보나치 수열
+
+fib(n) = 0                      ... n=1
+          1                      ... n=2
+          fib(n-1) + fib(n-2)  ... otherwise
+
+피보나치 수열이란?
+-> 수열의 n번째 값은 수열의 n-1번째 값 + 수열의 n-2번째
+     값을 더한 값을 가지는 수열
+
+#inlcude <iostream>
+int Fibonacci(int n)
+{
+    if(n==1)       return 0;
+    else if(n==2) return 1;
+    else            return Fibonacci(n-1) + Fibonacci(n-2);
+}
+int main(){
+    for(int i = 1; i < 15; i++)
+        std::cout << Fibonacci(i) << '  '; 
+    return 0;
+}
+
+-------------------------------------------------------------
+
+이진 탐색 알고리즘의 재귀적 구현
+-> 수학적 수식으로 표현하지 못하는 재귀함수도 존재한다.
+-> 이진 탐색 알고리즘이 수식적으로 표현하지 못하는 경우다
+// 하지만, 알고리즘의 논리 자체는 재귀적이기 때문에
+   재귀함수로 구현하는 것이 가능하다.
+
+1. 이진 탐색 알고리즘의 반복 패턴
+-> 탐색 범위의 중앙에 목표 값이 저장되었는지 확인
+-> 저장되지 않았다면 탐색 범위를 반으로 줄여서 다시 탐색 시작
+2. 이진 탐색 재귀함수의 탈출 조건
+-> "탐색 범위의 시작 위치를 의미하는 first가 탐색 범위의 끝을
+    의미하는 last보다 커지는 경우"
+
+# inlcude <iostream>
+int BSeatchRecur(int arr[], int first, int last, int target){
+    int mid;
+    if(first > last) return -1;
+    else{
+        mid = (first + last) / 2;
+        if (arr[mid] == target) return mid;
+        else if (target < arr[mid]) 
+              return BSearchRecur(arr, first, mid-1, target);
+        else return BSearchRecur(arr, mid + 1, last, target);
+    }
+}
+int main(){
+    int arr[] = { 1,3,5,7,9 };
+    int idx;
+
+    idx = BSearchRecur(arr, 0, sizeof(arr)/sizeof(int)-1, 7);
+    if(idx == -1) std::cout << "탐색실패" << '\n';
+    else std::cout << idx << '\n';
+}
+
+--------------------------------------------------------------------
+
+하노이 타워
+#inlcude HanoiTowerMove(int num, char from, char by, char to)
+{
+    if(num==1)
+        std::cout<<"원반"<<num<<"을"<<from<<"에서"<<to<<"로 이동";
+    else{
+        HanoiTowerMove(num - 1, from, to , by);
+        std::cout<<"원반"<<num<<"을"<<from<<"에서"<<to<<"로 이동";
+        HanoiTowerMove(num - 1, by, from, to);
+    }
+}
+https://velog.io/@mmindoong/
+%EC%9E%90%EB%A3%8C%EA%B5%AC%
+EC%A1%B0-%EC%9E%AC%EA%B7%80Recursion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
