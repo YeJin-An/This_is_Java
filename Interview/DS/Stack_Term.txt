@@ -1,0 +1,76 @@
+DS_Data Structure
+
+Stack_Term
+------------------------------------------------------------
+
+4. 자료구조__Stack
+
+Stack이란?
+-> 기본적인 자료구조의 한가지
+-> top에서만 이루어지게 제한되어 나중에 넣은 데이터가
+    먼저 나오는 구조를 가진 유한 순서리스트 
+    LIFO(Last In First Out) OR '후입선출' 이라 한다.
+
+Stack의 기본적인 형태
+-> 데이터를 넣는 공간 AND top 이라는 cursor로 이루어져 있다.
+-> psuh와 pop을 실행하면서 데이터의 삽입과 삭제가 발생한다.
+
+Stack의 활용사례
+-> 이 스택은 컴퓨터 시스템에도 많이 이용하고 있다.
+
+대표적으로
+1) 시스템 스택(System Stack)
+2) 실행시간 스택(Runtime stack)
+-> 이 스택의 주 임무는 
+    프로그램간의 [호출]과 [복귀]에 따른 {실행 순서}를 
+    정확하게 관리 할 수 있도록 제어하는 것이다.
+
+-- 프로그램의 함수 호출과 복귀에 스택이 사용되는 예를 나타냅니다
+지역변수
+형식 매개 변수   ->      프로그램 호출
+   복귀주소            프로그램 종료 후 복귀
+
+
+[ Stack의 ADT ]
+데이터 : 0개 이상의 원소를 가진 유한 순서 리스트
+1) CreateStack() -> 공백의 Stack을 생성
+2) Push(stack, item) -> stack에 top위치에 item을 삽입
+3) isEmpty(stack) -> stack이 공백이면 true, 공백이 아니며 false
+4) pop(stack) -> stack이 공백이면 error 
+                   , stack이 공백이 아니라면 top위치를 item을 반환후 삭제
+5) delete(stack) -> stack이 공백이라면 error,
+                   , stack이 공백이 아니라면 top위치의 item을 반환
+6) peek(stack) -> stack이 공백이라면 error
+                   , stack이 공백이 아니라면 top위치의 item을 반환
+
+
+CreateStack(): 데이터를 담을 공간과 top이라는 Cursor가 필요
+class Stack{
+    int stack[];
+    int top;
+
+    public Stack(int n){
+        stack = new int[n];
+        top = -1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

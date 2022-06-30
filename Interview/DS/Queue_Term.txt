@@ -1,0 +1,118 @@
+DS_Data Structure
+
+Queue_Term
+------------------------------------------------------------
+
+3. 자료구조 Queue
+
+[Q. Queue란?]
+-> 기본적은 자료구조의 한가지
+-> 먼저 넣은 데이터가 먼저 나오는 형태를 가지고 있는
+    유한 순서 리스트 {FIFO(First In First Out) OR 선입선출}
+
+-> 컴퓨터 시스템에 많이 사용된다.
+-> 우선순위가 없는 작업 스케줄을 만들때 사용된다
+
+-> Rear AND Front라는 Cursor와 데이터를 저장하는 공간.
+-> Rear는 Queue의 뒷부분 , Front는 Queue의 앞부분을 뜻한다.
+
+Queue삽입 -> Rear가 위치한 간에 데이터가 들어간다.
+Queue삭제 -> Front가 움직이면서 해당 칸애 데이터가 삭제된다.
+
+
+[Queue의 구현]
+-> 큐의 생성__데이터 공간과 Front와 Rear의 Cursor가 필요
+
+class Queue{
+    int[] q;
+    int rear;
+    int front;
+
+    public Queue(int n){
+        q = new int[n];
+        rear = -1;
+        front = -1;
+    }
+}
+
+
+-> 큐가 공백인지 검사하는 함수
+   : Front와 Rear가 같아지면 공백이 됩니다.
+
+public boolean isEmpty(){
+    if(front == rear) {return true;}  //Queue가 공백인 상태
+    else {return false;}                //Queue에 Data가 있는 상태
+}
+
+
+-> 큐에 데이터를 삽입하는 함수입니다.
+   : 데이터 삽입시 rear가 증가하여 해당 위치에 데이터를 
+     삽입합니다. 
+    // 삽입전 Queue가 만원 상태인지 확인합니다.
+
+public void enQueue(int item){
+    if(rear == q.lenght-1){System.out.println("Queue Full");}
+    return;   // Queue가 full인 상태 데이터 삽입 불가
+}else{
+    rear = reat + 1;   // rear를 증가
+    q[rear] = item;    // rear 위치에 item 삽입
+]
+
+
+-> 큐에 데이터를 삭제하여 반환하는 함수입니다.
+   : Queue가 공백인지 검사하며 공백이 아니라면 front를
+     증가시키고 반환합니다.
+
+public int deQueue(){
+    if(isEmpty()){
+        System.out.print("Queue Empty");
+        return 99;
+    }else{
+        front = front + 1;
+        return q[front];
+    }
+}
+
+
+[원형 Queue)]
+-> 위와 같은 알고리즘으로 만들어진 큐에는 큰 문제점이 있습니다.
+    그것은 한번 사용한 공간을 다시 사용하지 못한다는 것
+  // 그래서 만들어 진 것이 '원형 큐'이다.
+
+-> 큐를 위해 배열을 지정하고 큐를 쓰다보면,
+    배열의 앞부분이 비게되어 
+    배열의 맨 마지막 부분을 쓰면 다시 처음부터
+    큐를 채우기 시작하는 형태의 큐이다.
+// 배열이 원형으로 돌아가면서 채워지면서 다시 공간을 사용할 수 있다.
+
+-> 원형 큐는 front와 Rear의 증감식에 [Mod연산자]를 사용하여 구현한다.
+
+-> 원형 큐는 
+    Front와 Reat의 증감식에 Mod연산자를 사용하여 구현한다.
+  : Rear n-1 값이 n이 아닌 0값이 나와야 한다. 
+    
+Rear  <- (Rear + 1) Mod n
+Front <- (front + 1) Mod n
+
+// 주의할 점!
+   Queue의 Full조건이다.
+   rear가 한 바퀴 돌아서 front를 앞지르면 안된다는 것이다.
+   
+   기존의 Full조건을 원형 Queue Full 조건으로 변경해줘야 한다.
+
+if(Rear == n) then Queue Full
+if((Rear+1)  Mod n == Front) then Queue Full
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
